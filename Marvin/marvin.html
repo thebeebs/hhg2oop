@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>Marvin</title>
@@ -17,7 +17,7 @@
 	<body>
 		
 		<script src="three.min.js"></script>
-		<script src="OBJLoader.js"></script>
+        <script src="ColladaLoader.js"></script>
 
 		<script>
 
@@ -63,35 +63,36 @@
 
 				};
 
-				// var texture = new THREE.Texture();
+				 var texture = new THREE.Texture();
 
-				// var loader = new THREE.ImageLoader( manager );
-				// loader.load( 'textures/ash_uvgrid01.jpg', function ( image ) {
+				 var loader = new THREE.ImageLoader( manager );
+				 loader.load( 'ash_uvgrid01.jpg', function ( image ) {
 
-				// 	texture.image = image;
-				// 	texture.needsUpdate = true;
+				 	texture.image = image;
+				 	texture.needsUpdate = true;
 
-				// } );
+				 } );
 
 				// model
+				 var loader = new THREE.ColladaLoader();
 
-				var loader = new THREE.OBJLoader( manager );
-				loader.load( 'marvin.obj', function ( object ) {
+			    // Need to convert the axes so that our model does not stand upside-down:
+				 loader.options.convertUpAxis = true;
 
-					object.traverse( function ( child ) {
+				 loader.load('marvin.dae', function (collada) {
 
-						if ( child instanceof THREE.Mesh ) {
+				     // Grab the collada scene data:
+				     var dae = collada.scene;
+				     
+				     // No skin applied to my model so no need for the following:
+				     // var skin = collada.skins[ 0 ];
 
-							child.material.map = texture;
+				     // Scale-up the model so that we can see it:
+				     dae.scale.x = dae.scale.y = dae.scale.z = 100.0;
+				     scene.add(dae);
+		
+				 });
 
-						}
-
-					} );
-
-					object.position.y = - 80;
-					scene.add( object );
-
-				} );
 
 				//
 
