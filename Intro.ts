@@ -5,12 +5,9 @@
 interface Thing {
 	a: number;
 	b: string;
-	c?: boolean;
+	foo(x: string, n: number): string;
 }
 
 function process(x: Thing){
-	return x.a;
+	return x.foo("string",10);
 }
-
-var n = process({a: 10, b:'Beeby', c:'fail'});
-n.toFixed(0.0);
