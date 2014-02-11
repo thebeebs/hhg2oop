@@ -1,10 +1,11 @@
-// Functions can have optional parameters too
+// You can have overloads
 interface Thing {
 	a: number;
 	b: string;
-	foo(x: string, n?: number): string;
+	foo(x: string): string;
+	foo(x: number): string;
 }
 
 function process(x: Thing){
-	return x.foo("string");
+	return x.foo(2)
 }
