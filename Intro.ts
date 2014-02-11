@@ -1,6 +1,5 @@
-// So If I change the x to a number. Then
-// the product of x+x will be a number. 
-// So v is inferred to be a number
-function process(x: bool){
+// Lastly we will add the last permitive type bool
+// This will error since you can't add two bools together.
+function process(x: boolean){
 	var v = x + x;
 }
