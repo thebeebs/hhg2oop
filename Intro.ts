@@ -1,12 +1,17 @@
-// You can state that x is a fucntion
-// You can describe the shape of an object
-// so in this instance a will have a string propert called
-// a and a b property of type number
+// You can define you own types using interfaces
+// Thing describes and object literal with an a number property
+// and a b string property.
+// Even though the process function dosen't return a type
+// We have given the compiler enogh information to infer
+// that n at the bottom will be of type number.
 interface Thing {
 	a: number;
 	b: string;
 }
 
 function process(x: Thing){
-	return x.b.length;
+	return x.a;
 }
+
+var n = process({a: 10, b:'Beeby'})
+n.toFixed(0.0);
