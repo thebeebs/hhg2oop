@@ -7,11 +7,12 @@
 interface Thing {
 	a: number;
 	b: string;
+	c: boolean;
 }
 
 function process(x: Thing){
 	return x.a;
 }
 
-var n = process({a: 10, b:'Beeby'})
+var n = process({a: 10, b:'Beeby'});
 n.toFixed(0.0);
