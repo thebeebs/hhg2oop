@@ -1,6 +1,6 @@
-// You can have an array of string
-// This means IDEs and Text editors can add
-// statement completion to an array
-function process(x: string[]){
-	x[0].toLowerCase();
+// You can state that x is a fucntion
+// That returns a string.
+// If you call x the result will be a string.
+function process(x: () => string){
+	x().toLowerCase();
 }
