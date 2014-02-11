@@ -1,5 +1,6 @@
-// Lastly we will add the last permitive type bool
-// This will error since you can't add two bools together.
-function process(x: boolean){
-	var v = x + x;
+// You can have an array of string
+// This means IDEs and Text editors can add
+// statement completion to an array
+function process(x: string[]){
+	x[0].toLowerCase();
 }
