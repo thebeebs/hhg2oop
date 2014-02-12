@@ -1,20 +1,24 @@
-// You can model constructors 
-// You can model what happen when someone indexes the thing
-// telling TypeScript to return a date.
-interface Thing {
-	a: number;
-	b: string;
-	foo: {
-		(x: string): string;
-		(x: number): number;
-		data: any;
-	};
-	new (s: string): Element;
-	[index: number]: Date;
+// You can add an interface to an object
+// So the miss spelling of clear() is picked up and the app will not compile.
+interface Rapper {
+	say(x: string): void;
+	clear(): void;
+	speak(): string;
 }
 
-function process(x: Thing){
-	 var date = x[0].getDate();
-	 var el = new x("blah").clientWidth;
-	return date;
+function makeRapper(): Rapper{
+	var words;
+	return {
+		say: function (x: string){ 
+			words = x;
+			},
+		clearSpeltWrong: function (){ 
+			words = '';
+			},
+		speak: function(){
+			return words;
+		}
+	};
 }
+
+makeRapper();
