@@ -2,8 +2,11 @@
 interface Thing {
 	a: number;
 	b: string;
-	foo(x: string): string;
-	foo(x: number): string;
+	foo: {
+		(x: string): string;
+		(x: number): number;
+		data: any;
+	};
 }
 
 function process(x: Thing){
